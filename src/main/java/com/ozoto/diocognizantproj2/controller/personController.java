@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/people/v0.0.1/")
+@RequestMapping("/")
 public class personController {
 
     @GetMapping
