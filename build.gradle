@@ -2,11 +2,16 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'application'
 }
 
 group = 'com.ozoto'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+
+application {
+	mainClass = 'com.ozoto.diocognizantproj2.Diocognizantproj2Application'
+}
 
 configurations {
 	compileOnly {
