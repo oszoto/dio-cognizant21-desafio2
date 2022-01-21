@@ -10,7 +10,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 application {
-	mainClass = 'com.ozoto.diocognizantproj2.Diocognizantproj2Application'
+	mainClass = 'com.ozoto.diocognizantproj2.Application'
 }
 
 configurations {
