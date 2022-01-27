@@ -1,6 +1,5 @@
 package com.ozoto.diocognizantproj2.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -37,7 +36,7 @@ public class Person {
     private String cpf;
 
     @Column(nullable = false)
-    private LocalDate birthDate;
+    private String birthDate;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Phone> phones;

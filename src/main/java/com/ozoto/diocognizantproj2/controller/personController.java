@@ -1,30 +1,39 @@
 package com.ozoto.diocognizantproj2.controller;
 
-import com.ozoto.diocognizantproj2.dto.MessageResponseDTO;
-import com.ozoto.diocognizantproj2.entity.Person;
-import com.ozoto.diocognizantproj2.repository.PersonRepository;
+import javax.validation.Valid;
+
+import com.ozoto.diocognizantproj2.dto.request.PersonDTO;
+import com.ozoto.diocognizantproj2.dto.response.MessageResponseDTO;
+import com.ozoto.diocognizantproj2.service.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
 public class PersonController {
 
-    private PersonRepository personRepository;
+    private PersonService personService;
 
     @Autowired
-    public PersonController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
     }
-    
 
     @PostMapping
-    public MessageResponseDTO createPerson(@RequestBody Person person) {
-        Person savedPerson = personRepository.save(person);
-        return MessageResponseDTO.builder().message("Created person with ID = " + savedPerson.getId()).build();
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO person) {
+        return personService.createPerson(person);
+    }
+
+    @GetMapping
+    public String getTest() {
+        return "Teste";
     }
 }

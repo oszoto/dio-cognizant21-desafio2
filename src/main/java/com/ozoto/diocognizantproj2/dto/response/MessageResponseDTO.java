@@ -1,4 +1,4 @@
-package com.ozoto.diocognizantproj2.dto;
+package com.ozoto.diocognizantproj2.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
